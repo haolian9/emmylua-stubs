@@ -1,0 +1,33 @@
+--Instances of this type are returned by:
+-- * |vifm-l_vifm.currview()|
+-- * |vifm-l_vifm.otherview()|
+-- * |vifm-l_VifmTab:getview()|
+--
+--The corresponding view exists independently of this type and once the view is
+--gone (e.g., its tab is closed) accessing bound instance raises an error.
+---@class VifmView
+--
+--Equivalent of |vifm.opts.global| for location-specific values of
+--view-specific options.  These are "local" values of view-specific options
+--which are reset to "global" ones on file list change.
+--Assigning local options is {unsafe}.
+---@field locopts table
+--
+--Equivalent of |vifm.opts.global| for view-specific options, see there
+--for details.  These are "global" values of view-specific options.
+--Assigning view options is {unsafe}.
+---@field viewopts table
+--
+--Index of the current entry (starts at zero).
+---@field currententry number
+--
+---@field cwd string
+---@field entrycount number
+View = {}
+--Changes location of the view.  {path} isn't expanded in any way.
+--This function is {unsafe}.
+---@return boolean
+function View:cd(path) end
+--Retrieves an entry by index.
+---@return VifmEntry
+function View:entry(index) end
