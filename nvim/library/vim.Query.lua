@@ -1,0 +1,65 @@
+---@meta
+
+---@class Query
+Query = {}
+
+--Iterate over all captures from all matches inside {node}
+--
+--{source} is needed if the query contains predicates; then the caller must
+--ensure to use a freshly parsed tree consistent with the current text of
+--the buffer (if relevant). {start_row} and {end_row} can be used to limit
+--matches inside a row range (this is typically used with root node as the
+--{node}, i.e., to get syntax highlight matches in the current viewport).
+--When omitted, the {start} and {end} row values are used from the given node.
+--
+--The iterator returns three values: a numeric id identifying the capture,
+--the captured node, and metadata from any directives processing the match.
+--The following example shows how to get captures by name:
+--
+-- for id, node, metadata in query:iter_captures(tree:root(), bufnr, first, last) do
+--   local name = query.captures[id] -- name of the capture in the query
+--   -- typically useful info about the node:
+--   local type = node:type() -- type of the captured node
+--   local row1, col1, row2, col2 = node:range() -- range of the capture
+--   ... use the info here ...
+-- end
+--
+--Return:
+--    (number) capture Matching capture id
+--    (table) capture_node Capture for {node}
+--    (table) metadata for the {capture}
+--
+---@param node TSNode |tsnode| under which the search will occur
+---@param source number|string Source buffer or string to extract text from
+---@param start number Starting line for the search
+---@param stop number Stopping line for the search (end-exclusive)
+function Query:iter_captures(node, source, start, stop) end
+
+--Iterates the matches of self on a given range.
+--
+--Iterate over all matches within a {node}. The arguments are the same as
+--for |Query:iter_captures()| but the iterated values are different: an
+--(1-based) index of the pattern in the query, a table mapping capture
+--indices to nodes, and metadata from any directives processing the match.
+--If the query has more than one pattern, the capture table might be sparse
+--and e.g. `pairs()` method should be used over `ipairs` . Here is an example iterating over all captures in every match:
+--
+-- for pattern, match, metadata in cquery:iter_matches(tree:root(), bufnr, first, last) do
+--   for id, node in pairs(match) do
+--     local name = query.captures[id]
+--     -- `node` was captured by the `name` capture in the match
+--     local node_data = metadata[id] -- Node level metadata
+--     ... use the info here ...
+--   end
+-- end
+--
+--Return:
+--    (number) pattern id
+--    (table) match
+--    (table) metadata
+--
+---@param node TSNode |tsnode| under which the search will occur
+---@param source number|string Source buffer or string to search
+---@param start number Starting line for the search
+---@param stop number Stopping line for the search (end-exclusive)
+function Query:iter_matches(node, source, start, stop) end

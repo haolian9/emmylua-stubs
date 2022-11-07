@@ -3,6 +3,7 @@ provides annotations of some lua libraries which can be used for sumneko/lua-lan
 ## contained libraries
 * [x] vifm: https://github.com/vifm/vifm/blob/0f6dd626a4e64c0d342e8a6e0504cdf6871a5dbb/data/vim/doc/app/vifm-lua.txt
 * [ ] mpv: https://github.com/mpv-player/mpv/blob/master/DOCS/man/lua.rst
+* [x] nvim+treesitter: 0.8.0
 
 ## how to use in neovim
 * add it to your nvim plugin manager, say it's vim-plug
