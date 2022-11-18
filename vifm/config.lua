@@ -8,7 +8,7 @@ configs = {
   {
     key = 'Lua.runtime.version',
     action = 'set',
-    value = '5.4',
+    value = 'Lua 5.4',
   },
   {
     key = 'Lua.diagnostics.globals',
