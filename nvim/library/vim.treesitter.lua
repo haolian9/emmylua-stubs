@@ -57,7 +57,7 @@ function vim.treesitter.get_parser(bufnr, lang, opts) end
 ---@param str string Text to parse
 ---@param lang string Language of this string
 ---@param opts table|nil Options to pass to the created language tree
----@return TSTree
+---@return LanguageTree
 function vim.treesitter.get_string_parser(str, lang, opts) end
 
 --Determines whether a node is the ancestor of another
