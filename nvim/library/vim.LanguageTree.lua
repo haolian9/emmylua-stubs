@@ -94,4 +94,5 @@ function LanguageTree:source() end
 function LanguageTree:tree_for_range(range, opts) end
 
 --Returns all trees this language tree contains. Does not include child languages.
+---@return TSTree[]
 function LanguageTree:trees() end

@@ -7,7 +7,9 @@
 TSTree = {}
 
 --Return the root node of this tree.
+---@return TSNode
 function TSTree:root() end
 
 --Returns a copy of the `tstree`.
+---@return TSTree
 function TSTree:copy() end
