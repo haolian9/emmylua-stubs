@@ -63,7 +63,7 @@ function LanguageTree:named_node_for_range(range, opts) end
 --    userdata[] Table of parsed |tstree|
 --    (table) Change list
 --
----@return table Table of parsed TSTree
+---@return TSTree[] Table of parsed TSTree
 function LanguageTree:parse() end
 
 --Registers callbacks for the |LanguageTree|.
