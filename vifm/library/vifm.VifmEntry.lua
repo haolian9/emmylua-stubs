@@ -45,10 +45,10 @@ VifmEntry = {}
 -- - "suffix" (string)
 --   File name suffix.
 --
----@class Entry.classify
+---@class VifmEntry.classify
 ---@field prefix string
 ---@field suffix string
-Entry.classify = {}
+VifmEntry.classify = {}
 
 --Gets target of a symbolic link (not to be confused with real path resolution).
 --

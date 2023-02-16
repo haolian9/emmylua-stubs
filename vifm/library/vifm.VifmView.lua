@@ -23,11 +23,11 @@
 --
 ---@field cwd string
 ---@field entrycount number
-View = {}
+VifmView = {}
 --Changes location of the view.  {path} isn't expanded in any way.
 --This function is {unsafe}.
 ---@return boolean
-function View:cd(path) end
+function VifmView:cd(path) end
 --Retrieves an entry by index.
 ---@return VifmEntry
-function View:entry(index) end
+function VifmView:entry(index) end
