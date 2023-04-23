@@ -331,6 +331,11 @@ function vim.api.nvim_eval_statusline(str, opts) end
 ---@return string
 function vim.api.nvim_exec(src, output) end
 
+---@param src string
+---@param opts table
+---@return table
+function vim.api.nvim_exec2(src, opts) end
+
 ---@param event any
 ---@param opts table
 function vim.api.nvim_exec_autocmds(event, opts) end
@@ -391,6 +396,11 @@ function vim.api.nvim_get_current_tabpage() end
 ---@return Window
 function vim.api.nvim_get_current_win() end
 
+---@param ns_id integer
+---@param opts table
+---@return table
+function vim.api.nvim_get_hl(ns_id, opts) end
+
 ---@param hl_id integer
 ---@param rgb boolean
 ---@return table
@@ -427,6 +437,11 @@ function vim.api.nvim_get_option(name) end
 ---@param name string
 ---@return table
 function vim.api.nvim_get_option_info(name) end
+
+---@param name string
+---@param opts table
+---@return table
+function vim.api.nvim_get_option_info2(name, opts) end
 
 ---@param name string
 ---@param opts table
@@ -656,6 +671,9 @@ function vim.api.nvim_ui_pum_set_bounds(width, height, row, col) end
 
 ---@param height integer
 function vim.api.nvim_ui_pum_set_height(height) end
+
+---@param gained boolean
+function vim.api.nvim_ui_set_focus(gained) end
 
 ---@param name string
 ---@param value any
