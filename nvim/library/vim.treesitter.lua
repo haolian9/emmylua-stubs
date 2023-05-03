@@ -3,6 +3,12 @@
 ---@class vim.treesitter
 vim.treesitter = {}
 
+--Returns the fold level for {lnum} in the current buffer. Can be set directly to 'foldexpr':
+--`vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'`
+---@param lnum? number Line number to calculate fold level for
+---@return string
+function vim.treesitter.foldexpr(lnum) end
+
 --Returns a list of highlight capture names under the cursor
 ---@param winnr number|nil Window handle or 0 for current window (default)
 ---@return table string[] List of capture names
@@ -43,6 +49,13 @@ function vim.treesitter.get_node_at_pos(bufnr, row, col, opts) end
 ---@return table `{ start_row, start_col, end_row, end_col }`
 function vim.treesitter.get_node_range(node_or_range) end
 
+--Gets the text corresponding to a given node
+---@param node TSNode
+---@param source number|string Buffer or string from which the {node} is extracted
+---@param opts? {metadata: TSMetadata}
+---@return string
+function vim.treesitter.get_node_text(node, source, opts) end
+
 --Returns the parser for a specific buffer and filetype and attaches it to the buffer
 --If needed, this will create the parser.
 --
@@ -51,6 +64,13 @@ function vim.treesitter.get_node_range(node_or_range) end
 ---@param opts table|nil Options to pass to the created language tree
 ---@return LanguageTree
 function vim.treesitter.get_parser(bufnr, lang, opts) end
+
+--Get the range of a |TSNode|. Can also supply {source} and {metadata} to
+--get the range with directives applied.
+---@param node TSNode
+---@param source? number|string Buffer or string from which the {node} is extracted
+---@param metadata? TSMetadata
+function vim.treesitter.get_range(node, source, metadata) end
 
 --Returns a string parser
 --

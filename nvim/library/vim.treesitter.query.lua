@@ -11,30 +11,22 @@ vim.treesitter.query = {}
 --`metadata[capture_id].key = value`
 --
 ---@param name string Name of the directive, without leading #
----@param handler function function(match:string, pattern:string, bufnr:number, predicate:function, metadata:table)
+---@param handler fun(match: {[string]: TSNode}, pattern: string, bufnr: number, predicate: string[], metadata: table)
+---@param force? boolean
 function vim.treesitter.query.add_directive(name, handler, force) end
 
 --Adds a new predicate to be used in queries
 --
 ---@param name string Name of the predicate, without leading #
----@param handler function function(match:string, pattern:string, bufnr:number, predicate:function)
+---@param handler fun(match: {[string]: TSNode}, pattern: string, bufnr: number, predicate: string[])
 function vim.treesitter.query.add_predicate(name, handler, force) end
-
---Gets the text corresponding to a given node
---
----@param node TSNode
----@param source number|string Buffer or string from which the {node} is extracted
----@param opts table|nil Optional parameters.
---              • concat: (boolean) Concatenate result in a string (default true)
----@return table|string
-function vim.treesitter.query.get_node_text(node, source, opts) end
 
 --Returns the runtime query {query_name} for {lang}.
 --
 ---@param lang string Language to use for the query
 ---@param query_name string Name of the query (e.g. "highlights")
 ---@return Query
-function vim.treesitter.query.get_query(lang, query_name) end
+function vim.treesitter.query.get(lang, query_name) end
 
 --Gets the list of files used to make up a query
 --
@@ -42,7 +34,7 @@ function vim.treesitter.query.get_query(lang, query_name) end
 ---@param query_name string Name of the query to load (e.g., "highlights")
 ---@param is_included boolean|nil Internal parameter, most of the time left as `nil`
 ---@return table string[] query_files List of files to load for given query and language
-function vim.treesitter.query.get_query_files(lang, query_name, is_included) end
+function vim.treesitter.query.get_files(lang, query_name, is_included) end
 
 --Lists the currently available directives to use in queries.
 ---@return table string[] List of supported directives.
@@ -66,7 +58,7 @@ function vim.treesitter.query.list_predicates() end
 ---@param lang string Language to use for the query
 ---@param query string Query in s-expr syntax
 ---@return Query
-function vim.treesitter.query.parse_query(lang, query) end
+function vim.treesitter.query.parse(lang, query) end
 
 --Sets the runtime query named {query_name} for {lang}
 --This allows users to override any runtime files and/or configuration set by plugins.
@@ -74,4 +66,4 @@ function vim.treesitter.query.parse_query(lang, query) end
 ---@param lang string Language to use for the query
 ---@param query_name string Name of the query (e.g., "highlights")
 ---@param text string Query text (unparsed).
-function vim.treesitter.query.set_query(lang, query_name, text) end
+function vim.treesitter.query.set(lang, query_name, text) end

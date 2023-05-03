@@ -14,7 +14,8 @@ function LanguageTree:contains(range) end
 
 --Destroys this |LanguageTree| and all its children.
 --Any cleanup logic should be performed here.
---Note: This DOES NOT remove this tree from a parent. Instead, `remove_child` must be called on the parent to remove it.
+--Note: This DOES NOT remove this tree from a parent. Instead, `remove_child`
+--must be called on the parent to remove it.
 function LanguageTree:destroy() end
 
 --Invokes the callback for each |LanguageTree| and its children recursively
@@ -35,8 +36,10 @@ function LanguageTree:included_regions() end
 --Invalidates this parser and all its children
 function LanguageTree:invalidate(reload) end
 
---Determines whether this tree is valid. If the tree is invalid, call `parse()` . This will return the updated tree.
-function LanguageTree:is_valid() end
+--Determines whether this tree is valid. If the tree is invalid, call `parse()`.
+--This will return the updated tree.
+---@param exclusive_children? boolean
+function LanguageTree:is_valid(exclusive_children) end
 
 --Gets the language of this tree node.
 function LanguageTree:lang() end

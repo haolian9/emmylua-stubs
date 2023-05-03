@@ -42,7 +42,7 @@ function Query:iter_captures(node, source, start, stop) end
 --(1-based) index of the pattern in the query, a table mapping capture
 --indices to nodes, and metadata from any directives processing the match.
 --If the query has more than one pattern, the capture table might be sparse
---and e.g. `pairs()` method should be used over `ipairs` . Here is an example iterating over all captures in every match:
+--and e.g. `pairs()` method should be used over `ipairs` . Here is an example iterating over all captures in every match: >lua
 --
 -- for pattern, match, metadata in cquery:iter_matches(tree:root(), bufnr, first, last) do
 --   for id, node in pairs(match) do

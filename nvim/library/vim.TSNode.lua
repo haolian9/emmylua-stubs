@@ -58,9 +58,17 @@ function TSNode:start() end
 ---@return number,number,number
 function TSNode:end_() end
 
---Get the range of the node. Return four values: the row, column of the start position, then the row, column of the end position.
+--Get the range of the node.
+--Return four or six values:
+--    - start row
+--    - start column
+--    - start byte (if {include_bytes} is `true`)
+--    - end row
+--    - end column
+--    - end byte (if {include_bytes} is `true`)
+---@param include_bytes boolean?
 ---@return number,number,number,number
-function TSNode:range() end
+function TSNode:range(include_bytes) end
 
 --Get the node's type as a string.
 ---@return string
@@ -80,6 +88,15 @@ function TSNode:named() end
 ---@return boolean
 function TSNode:missing() end
 
+--Check if the node is extra. Extra nodes represent things like comments,
+--which are not required by the grammar but can appear anywhere.
+---@return boolean
+function TSNode:extra() end
+
+--Check if a syntax node has been edited.
+---@return boolean
+function TSNode:has_changes() end
+
 --Check if the node is a syntax error or contains any syntax errors.
 ---@return boolean
 function TSNode:has_error() end
@@ -98,8 +115,17 @@ function TSNode:sexpr() end
 ---@return string
 function TSNode:id() end
 
+--Get the |TSTree| of the node.
+---@return TSTree
+function TSNode:tree() end
+
 --Get the smallest node within this node that spans the given range of (row, column) positions
 function TSNode:descendant_for_range(start_row, start_col, end_row, end_col) end
 
 --Get the smallest named node within this node that spans the given range of (row, column) positions
 function TSNode:named_descendant_for_range(start_row, start_col, end_row, end_col) end
+
+--Check if {node} refers to the same node within the same tree.
+---@param node TSNode
+---@return boolean
+function TSNode:equal(node) end
