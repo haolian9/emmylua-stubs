@@ -6,31 +6,27 @@ provides annotations of some lua libraries which can be used for sumneko/lua-lan
 * [x] nvim 0.9.0: https://github.com/ii14/emmylua-nvim/tree/2d97dd135f2a7272eb169cbb602a8144bc2eb7d2
 * [x] vim.treesitter 0.9.0
 
-## use
-* make this repo discoverable to nvim
-* configure lua_ls via nvim-lspconfig
+## configure
+
+see: https://github.com/LuaLS/lua-language-server/wiki/Settings#workspacelibrary
+
+`vim.lsp.start`, for example:
 
 ```
-lspconfig["lua_ls"].setup({
+vim.lsp.start({
   settings = {
     Lua = {
       diagnostics = {
-        globals = {
-            "vifm",
-            -- and others
-        },
+        globals = { "vifm" },
       },
       workspace = {
-        library = {
-          -- for vifm annotations only
-          "/path/to/this/emmylua-stubs/vifm"),
-          -- and others
-        },
+        library = { "/path/to/this/repo/vifm" },
       },
     },
   },
+  -- other configures for lua_ls
 })
 ```
 
 ## todo
-* annotation generators, but it seems to be hard to parse the api document of vifm and mpv
+* annotation generators, but it seems to be hard to parse the api document of vifm
