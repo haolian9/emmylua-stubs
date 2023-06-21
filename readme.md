@@ -5,6 +5,7 @@ provides annotations of some lua libraries which can be used for sumneko/lua-lan
 * [x] mpv 0.35.0: https://github.com/mpv-player/mpv/raw/2e5d0d6e07b373445dfecc3bb59454d08d9439d5/DOCS/man/lua.rst
 * [x] nvim 0.9.0: https://github.com/ii14/emmylua-nvim/tree/2d97dd135f2a7272eb169cbb602a8144bc2eb7d2
 * [x] vim.treesitter 0.9.0
+* [x] fcitx5 5.0.10
 
 ## configure
 
