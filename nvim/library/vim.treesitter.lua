@@ -26,22 +26,17 @@ function vim.treesitter.get_captures_at_cursor(winnr) end
 ---@return table List of captures `{ capture = "capture name", metadata = { ...
 function vim.treesitter.get_captures_at_pos(bufnr, row, col) end
 
---Returns the smallest named node under the cursor
---
----@param winnr number|nil Window handle or 0 for current window (default)
----@return string
-function vim.treesitter.get_node_at_cursor(winnr) end
-
---Returns the smallest named node at the given position
---
----@param bufnr number Buffer number (0 for current buffer)
----@param row number Position row
----@param col number Position column
----@param opts table Optional keyword arguments:
---             • ignore_injections boolean Ignore injected languages
---               (default true)
----@return TSNode
-function vim.treesitter.get_node_at_pos(bufnr, row, col, opts) end
+---Returns the smallest named node at the given position
+---
+---opts:
+---• bufnr integer|nil Buffer number (nil or 0 for current buffer)
+---• pos table|nil 0-indexed (row, col) tuple. Defaults to cursor
+---  position in the current window. Required if {bufnr} is not
+---  the current buffer
+---• ignore_injections boolean Ignore injected languages (default true)
+---
+---@param opts? {bufnr?: integer, pos?: {[1]: integer, [2]: integer}, ignore_injections?: boolean}
+function vim.treesitter.get_node(opts) end
 
 --Returns the node's range or an unpacked range table
 --

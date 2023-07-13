@@ -36,14 +36,14 @@ function TSNode:iter_children() end
 function TSNode:field(name) end
 
 --Get the node's number of children.
----@return number
+---@return integer
 function TSNode:child_count() end
 
 --Get the node's child at the given {index}, where zero represents the first child.
 function TSNode:child(index) end
 
 --Get the node's number of named children.
----@return number
+---@return integer
 function TSNode:named_child_count() end
 
 --Get the node's named child at the given {index}, where zero represents the first named child.
@@ -51,11 +51,11 @@ function TSNode:named_child_count() end
 function TSNode:named_child(index) end
 
 --Get the node's start position. Return three values: the row, column and total byte count (all zero-based).
----@return number,number,number
+---@return integer,integer,integer
 function TSNode:start() end
 
 --Get the node's end position. Return three values: the row, column and total byte count (all zero-based).
----@return number,number,number
+---@return integer,integer,integer
 function TSNode:end_() end
 
 --Get the range of the node.
@@ -67,7 +67,7 @@ function TSNode:end_() end
 --    - end column
 --    - end byte (if {include_bytes} is `true`)
 ---@param include_bytes boolean?
----@return number,number,number,number
+---@return integer,integer,integer,integer
 function TSNode:range(include_bytes) end
 
 --Get the node's type as a string.
@@ -75,7 +75,7 @@ function TSNode:range(include_bytes) end
 function TSNode:type() end
 
 --Get the node's type as a numerical id.
----@return number
+---@return integer
 function TSNode:symbol() end
 
 --Check if the node is named. Named nodes correspond to named rules in the
