@@ -1,6 +1,14 @@
+---@meta
+
+---@class vim.InspectOpts
+---@field depth? integer @nil=inf
+---@field newline? string @nil=\n
+---@field indent? string @nil=<spc><spc>
+---@field process? fun(item: any, path: any[])
+
 --https://github.com/kikito/inspect.lua#options
 ---@param value any
----@param options? {depth: number, newline: boolean, indent: boolean, process: fun(item: any, path: string[]): any}
+---@param options vim.InspectOpts
 function vim.inspect(value, options) end
 
 --Parse the Vim regex {re} and return a regex object. Regexes are "magic"

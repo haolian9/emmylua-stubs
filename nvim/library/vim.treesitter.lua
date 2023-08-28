@@ -36,6 +36,7 @@ function vim.treesitter.get_captures_at_pos(bufnr, row, col) end
 ---• ignore_injections boolean Ignore injected languages (default true)
 ---
 ---@param opts? {bufnr?: integer, pos?: {[1]: integer, [2]: integer}, ignore_injections?: boolean}
+---@return TSNode?
 function vim.treesitter.get_node(opts) end
 
 --Returns the node's range or an unpacked range table
