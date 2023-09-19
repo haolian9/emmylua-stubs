@@ -8,7 +8,7 @@
 
 --https://github.com/kikito/inspect.lua#options
 ---@param value any
----@param options vim.InspectOpts
+---@param options? vim.InspectOpts
 function vim.inspect(value, options) end
 
 --Parse the Vim regex {re} and return a regex object. Regexes are "magic"

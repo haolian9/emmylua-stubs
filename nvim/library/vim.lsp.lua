@@ -51,11 +51,6 @@ vim.lsp.LangserInitParams = {}
 ---These are returned to the language server if requested via `workspace/configuration`. Keys are case-sensitive.
 ---@field settings? table
 ---
----Table that maps string of clientside
----commands to user-defined functions. Commands passed to start_client take precedence over the global command registry.
----Each key must be a unique command name, and the value is a function which is called if any LSP action (code action, code lenses, ...) triggers the command.
----@field commands? {[string]: any}
----
 ---Values to pass in the initialization request as `initializationOptions`.
 ---See `initialize` in the LSP spec.
 ---@field init_options any
@@ -110,3 +105,5 @@ vim.lsp.LangserInitParams = {}
 ---Directory where the LSP server will base its workspaceFolders, rootUri, and rootPath on initialization.
 ---@field root_dir? string
 vim.lsp.LangserSpec = {}
+
+---@alias vim.lsp.Handler fun(err?: any, result?: any, ctx: {method: string, client_id: integer, bufnr: integer, params?: table}, config: table): any?, {code: integer, message: any, data?: any}}?
