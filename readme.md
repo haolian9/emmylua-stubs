@@ -6,6 +6,7 @@ provides annotations of some lua libraries which can be used for sumneko/lua-lan
 * [x] nvim 0.9.0: https://github.com/ii14/emmylua-nvim/tree/2d97dd135f2a7272eb169cbb602a8144bc2eb7d2
 * [x] vim.treesitter 0.9.0
 * [x] fcitx5 5.0.10
+* [ ] awesomewm 4.3: https://github.com/kosorin/awesome-code-doc/tree/25fe9c5f56b55b60b91ff1790cd4b78f4a5a1659
 
 ## configure
 
@@ -31,3 +32,8 @@ vim.lsp.start({
 
 ## todo
 * annotation generators, but it seems to be hard to parse the api document of vifm
+
+
+## thoughts
+* why dont i contribute to the upstream repositories directly?
+* potential license issue with the included repositories?

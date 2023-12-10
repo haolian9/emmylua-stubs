@@ -1,23 +1,23 @@
 ---@meta _
 
 ---@alias _awesome_signals
----| "debug::error" # A call into the Lua code aborted with an error.
----| "debug::deprecation" # A deprecated Lua function was called.
----| "debug::index::miss" # An invalid key was read from an object.
+---| "debug::error"          # A call into the Lua code aborted with an error.
+---| "debug::deprecation"    # A deprecated Lua function was called.
+---| "debug::index::miss"    # An invalid key was read from an object.
 ---| "debug::newindex::miss" # An invalid key was written to an object.
----| "systray::update" # The systray should be updated.
----| "wallpaper_changed" # The wallpaper has changed.
----| "xkb::map_changed" # Keyboard map has changed.
----| "xkb::group_changed" # Keyboard group has changed.
----| "refresh" # Refresh. This signal is emitted as a kind of idle signal in the event loop.
----| "startup" # AwesomeWM is about to enter the event loop.
----| "exit" # AwesomeWM is exiting / about to restart.
----| "screen::change" # The output status of a screen has changed.
----| "spawn::canceled" # For some reason the application aborted startup
----| "spawn::change" # When one of the fields from the spawn::initiated table changes
----| "spawn::completed" # An application finished starting
----| "spawn::initiated" # When a new client is beginning to start
----| "spawn::timeout" # An application started a spawn event but didn't start in time.
+---| "systray::update"       # The systray should be updated.
+---| "wallpaper_changed"     # The wallpaper has changed.
+---| "xkb::map_changed"      # Keyboard map has changed.
+---| "xkb::group_changed"    # Keyboard group has changed.
+---| "refresh"               # Refresh. This signal is emitted as a kind of idle signal in the event loop.
+---| "startup"               # AwesomeWM is about to enter the event loop.
+---| "exit"                  # AwesomeWM is exiting / about to restart.
+---| "screen::change"        # The output status of a screen has changed.
+---| "spawn::canceled"       # For some reason the application aborted startup
+---| "spawn::change"         # When one of the fields from the spawn::initiated table changes
+---| "spawn::completed"      # An application finished starting
+---| "spawn::initiated"      # When a new client is beginning to start
+---| "spawn::timeout"        # An application started a spawn event but didn't start in time.
 
 ---@alias _client_signals
 ---| "scanning" # Emitted when AwesomeWM is about to scan for existing clients.
