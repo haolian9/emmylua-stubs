@@ -1,8 +1,7 @@
---The ``mp`` module is preloaded, although it can be loaded manually with
+--The `mp` module is preloaded, although it can be loaded manually with
+--require 'mp'. It provides the core client API.
 --@class mp
 mp = {}
-
-function require 'mp'``. It provides the core client AP end
 
 --Run the given command. This is similar to the commands used in input.conf.
 --See `List of Input Commands`_.
