@@ -9,7 +9,8 @@ vim.Regex = {}
 --there is no match, `nil` is returned. As any integer is truth-y,
 --`regex:match()` can be directly used as a condition in an if-statement.
 ---@param str string
----@return number?,number?
+---@return number? start_col @0-based, inclusive
+---@return number? stop_col @0-based, exclusive
 function vim.Regex:match_str(str) end
 
 --Match line {line_idx} (zero-based) in buffer {bufnr}. If {start} and {end}
@@ -20,5 +21,6 @@ function vim.Regex:match_str(str) end
 ---@param line_idx number zero-based
 ---@param start? number
 ---@param end_? number
----@return number?,number?
+---@return number? start_col @0-based, inclusive
+---@return number? stop_col @0-based, exclusive
 function vim.Regex:match_line(bufnr, line_idx, start, end_) end
