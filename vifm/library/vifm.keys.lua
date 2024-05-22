@@ -4,48 +4,30 @@
 ---@class vifm.keys
 vifm.keys = {}
 
---Registers in one or several modes:
--- * a new user-defined key which might replace an existing one
--- * a new selector which must not conflict with an existing one
---
---Possible fields of {key}:
--- - "shortcut" (string)
---   Left-hand side of the mapping.
--- - "description" (string) (default: "")
---   Description of the key.
--- - "modes" (array of strings)
---   List of modes to register the key in.  Supported values: cmdline, nav,
---   normal, visual, menus, view and dialogs (sort, attributes, change and file info).
---   Unsupported values are ignored.
--- - "isselector" (boolean) (default: false)
---   Whether this handler defines a selector rather than a regular key.
--- - "followedby" (string) (default: "none")
---   "none", "selector" (e.g., "j" in "dj") or "keyarg" (e.g., "q" in "'q").
--- - "handler" (function)
---   Handler which accepts {info} and returns a table for selector handlers.
---   See below.
---
---{key}.handler for selectors is executed in a safe environment and can't call
---API marked as {unsafe}.
---
---Fields of {info} argument for {key}.handler:
--- - "count" (integer)
---   Count preceding the key or nil if none.
--- - "register" (string)
---   Register name or nil if none was specified.
--- - "indexes" (table) (present if key is followed by selector)
---   Table of indexes returned by selector key.
--- - "keyarg" (string) (present if key is followed by keyarg)
---   Key argument (e.g., "x" in "mx" sequence).
---
---Fields of table returned by {key}.handler for selectors:
--- - "indexes" (array of integers)
---   Table of indexes of entries of the current view (|vifm-l_vifm.currview()|)
---   that were selected for the operation.  Invalid, nonexistent and duplicate
---   indexes are silently ignored.  Indexes are sorted before processing.
--- - "cursorpos" (integer) (optional)
---   New position of the cursor.  Non-integer values are ignored.
---
----@param key table Table with information about a key.
----@return boolean
-function vifm.keys.add(key) end
+do
+  ---@class vifm.keys.add.Key
+  ---@field shortcut string @Left-hand side of the mapping.
+  ---@field description? string @nil=""
+  ---@field modes ('cmdline'|'nav'|'normal'|'visual'|'menus'|'view'|'dialogs')[]
+  ---@field isselector? boolean @nil=false; Whether this handler defines a selector rather than a regular key.
+  ---@field followedby? 'none'|'selector' @nil=none
+  ---@field handler fun(info: vifm.keys.add.handler.Info): nil|vifm.keys.add.handler.SelectorResult
+
+  ---@class vifm.keys.add.handler.Info
+  ---@field count? integer @Count preceding the key or nil if none.
+  ---@field register? string @Register name or nil if none was specified.
+  ---@field indexes? table @present if key is followed by selector; Table of indexes returned by selector key.
+  ---@field keyarg? string @present if key is followed by keyarg; Key argument (e.g., "x" in "mx" sequence).
+
+  ---@class vifm.keys.add.handler.SelectorResult
+  ---@field indexes integer[] @Table of indexes of entries of the current view (|vifm-l_vifm.currview()|) that were selected for the operation.  Invalid, nonexistent and duplicate indexes are silently ignored.  Indexes are sorted before processing.
+  ---@field cursorpos? integer @New position of the cursor.  Non-integer values are ignored.
+
+  --Registers in one or several modes:
+  -- * a new user-defined key which might replace an existing one
+  -- * a new selector which must not conflict with an existing one
+  --{key}.handler for selectors is executed in a safe environment and can't call API marked as {unsafe}.
+  ---@param key vifm.keys.add.Key
+  ---@return boolean
+  function vifm.keys.add(key) end
+end

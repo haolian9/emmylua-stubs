@@ -115,7 +115,7 @@ do
   ---@field cmd string
   ---@field description? string
   ---@field iomode? 'r'|'w'|'' @nil=r
-  ---@field onexit? fun()
+  ---@field onexit? fun(job: vifm.Job)
   ---@field mergestreams? boolean @nil=false; Whether to merge error stream of the command with its output stream.
   ---@field visible? boolean @nil=false; Whether to show this job on a job bar.
 
