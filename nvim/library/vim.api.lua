@@ -415,6 +415,10 @@ function vim.api.nvim_get_hl_by_name(name, rgb) end
 ---@return integer
 function vim.api.nvim_get_hl_id_by_name(name) end
 
+---@param opts table
+---@return integer
+function vim.api.nvim_get_hl_ns(opts) end
+
 ---@param mode string
 ---@return table[]
 function vim.api.nvim_get_keymap(mode) end
@@ -656,6 +660,10 @@ function vim.api.nvim_tabpage_list_wins(tabpage) end
 ---@param value any
 function vim.api.nvim_tabpage_set_var(tabpage, name, value) end
 
+---@param tabpage Tabpage
+---@param win Window
+function vim.api.nvim_tabpage_set_win(tabpage, win) end
+
 ---@param width integer
 ---@param height integer
 ---@param options table
@@ -678,6 +686,10 @@ function vim.api.nvim_ui_set_focus(gained) end
 ---@param name string
 ---@param value any
 function vim.api.nvim_ui_set_option(name, value) end
+
+---@param event string
+---@param value any
+function vim.api.nvim_ui_term_event(event, value) end
 
 ---@param width integer
 ---@param height integer
@@ -786,3 +798,8 @@ function vim.api.nvim_win_set_var(window, name, value) end
 ---@param window Window
 ---@param width integer
 function vim.api.nvim_win_set_width(window, width) end
+
+---@param window Window
+---@param opts table
+---@return table
+function vim.api.nvim_win_text_height(window, opts) end
