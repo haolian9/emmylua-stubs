@@ -1,13 +1,13 @@
 ---@meta
 
 --Instances of this type are returned by |vifm-l_vifm.startjob()|.
----@class VifmJob
-VifmJob = {}
+---@class vifm.Job
+vifm.Job = {}
 
 --Waits for the job to finish.
 --
 --Raises an error:~ If waiting has failed.
-function VifmJob:wait() end
+function vifm.Job:wait() end
 
 --Retrieves exit code of the application.
 --
@@ -19,7 +19,7 @@ function VifmJob:wait() end
 --Raises an error: If waiting has failed.
 --
 ---@return number
-function VifmJob:exitcode() end
+function vifm.Job:exitcode() end
 
 --Retrieves stream associated with standard input of a job.
 --
@@ -29,7 +29,7 @@ function VifmJob:exitcode() end
 --Raises an error:~
 --  If the job wasn't started with "w" I/O mode (see |vifm-l_vifm.startjob()|).
 --  If input stream object is already closed.
-function VifmJob:stdin() end
+function vifm.Job:stdin() end
 
 --Retrieves stream associated with standard output of a job.  Includes error
 --stream if `mergestreams` was set to `true`.
@@ -40,11 +40,11 @@ function VifmJob:stdin() end
 --Raises an error:~
 --  If the job wasn't started with "r" I/O mode (see |vifm-l_vifm.startjob()|).
 --  If output stream object is already closed.
-function VifmJob:stdout() end
+function vifm.Job:stdout() end
 
 --Retrieves data collected from error stream of the job.  It's accumulated
 --automatically in background and contains all data collected so far, the call
 --doesn't wait for arrival of data.  Empty if `mergestreams` was set to `true`.
 --
 ---@return string
-function VifmJob:errors() end
+function vifm.Job:errors() end

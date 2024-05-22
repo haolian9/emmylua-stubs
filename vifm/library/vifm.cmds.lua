@@ -4,19 +4,23 @@
 ---@class vifm.cmds
 vifm.cmds = {}
 
----@class Cmd
----@field name string
----@field description string
----@field minargs number
----@field maxargs number
-Cmd = {}
---Handler which accepts {info}.
----@param info table @{args: str, argv: [str]}
-Cmd.handler = function(info) end
---Completion function which accepts {info} and returns {results}.
----@param info table @{arg: str, args: str, argv: [str]}
----@return number,table @(offset: int, matches: [str])
-Cmd.complete = function(info) end
+do
+  ---@class Cmd
+  ---@field name string
+  ---@field description string
+  ---@field minargs number
+  ---@field maxargs number
+  Cmd = {}
+
+  --Handler which accepts {info}.
+  ---@param info table @{args: str, argv: [str]}
+  function Cmd.handler(info) end
+
+  --Completion function which accepts {info} and returns {results}.
+  ---@param info table @{arg: str, args: str, argv: [str]}
+  ---@return number,table @(offset: int, matches: [str])
+  function Cmd.complete(info) end
+end
 
 --Registers a new :command of a kind that's equivalent to builtin commands.
 --

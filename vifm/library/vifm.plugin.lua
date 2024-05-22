@@ -1,3 +1,5 @@
+---@meta
+
 --provides API service for this plugin
 ---@class vifm.plugin
 ---@field name string Name of the plugin

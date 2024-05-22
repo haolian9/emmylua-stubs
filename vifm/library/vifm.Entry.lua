@@ -6,7 +6,7 @@
 --
 --Fields of this table are just copies, changing their values won't affect state
 --of the application.
----@class VifmEntry
+---@class vifm.Entry
 --
 ---@field name string Name of the file
 ---@field location string Location of the file
@@ -37,7 +37,7 @@
 --For a search match this is the end position of a substring found in name,
 --zero otherwise.
 ---@field matchend integer
-VifmEntry = {}
+vifm.Entry = {}
 
 --Table that describes name decorations.  Its fields:
 -- - "prefix" (string)
@@ -45,10 +45,10 @@ VifmEntry = {}
 -- - "suffix" (string)
 --   File name suffix.
 --
----@class VifmEntry.classify
+---@class vifm.Entry.classify
 ---@field prefix string
 ---@field suffix string
-VifmEntry.classify = {}
+vifm.Entry.classify = {}
 
 --Gets target of a symbolic link (not to be confused with real path resolution).
 --
@@ -57,7 +57,7 @@ VifmEntry.classify = {}
 --  If resolving symbolic link has failed.
 --
 ---@return string
-function VifmEntry:gettarget() end
+function vifm.Entry:gettarget() end
 
 --Gets a MIME type.  Resolves target of symbolic links.
 --
@@ -66,4 +66,4 @@ function VifmEntry:gettarget() end
 --  available.
 --
 ---@return string|nil
-function VifmEntry:mimetype() end
+function vifm.Entry:mimetype() end

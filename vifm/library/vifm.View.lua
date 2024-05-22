@@ -1,3 +1,5 @@
+---@meta
+
 --Instances of this type are returned by:
 -- * |vifm-l_vifm.currview()|
 -- * |vifm-l_vifm.otherview()|
@@ -5,7 +7,7 @@
 --
 --The corresponding view exists independently of this type and once the view is
 --gone (e.g., its tab is closed) accessing bound instance raises an error.
----@class VifmView
+---@class vifm.View
 --
 --Equivalent of |vifm.opts.global| for location-specific values of
 --view-specific options.  These are "local" values of view-specific options
@@ -23,11 +25,26 @@
 --
 ---@field cwd string
 ---@field entrycount number
-VifmView = {}
+---@field custom nil|{title: string, type: string} @Table with information about custom file list.
+vifm.View = {}
+
 --Changes location of the view.  {path} isn't expanded in any way.
 --This function is {unsafe}.
 ---@return boolean
-function VifmView:cd(path) end
+function vifm.View:cd(path) end
+
 --Retrieves an entry by index.
----@return VifmEntry
-function VifmView:entry(index) end
+---@return vifm.Entry
+function vifm.View:entry(index) end
+
+--Selects entries. Does nothing in visual non-amend mode. See |vifm-l_VifmView:unselect()| to unselect entries.
+--This function is {unsafe}.
+---@param entries {indexes: integer[]} @Indexes of entries to select. Invalid and nonexistent indexes are silently ignored.
+---@return integer @Number of new selected entries.
+function vifm.View:select(entries) end
+
+--Unselects entries. Does nothing in visual non-amend mode. See |vifm-l_VifmView:select()| to select entries.
+--This function is {unsafe}.
+---@param entries {indexes: integer[]} @Indexes of entries to unselect. Invalid and nonexistent indexes are silently ignored.
+---@return integer @Number of new unselected entries.
+function vifm.View:unselect(entries) end

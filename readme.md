@@ -1,7 +1,7 @@
 provides annotations of some lua libraries which can be used for sumneko/lua-language-server.
 
 ## included libraries
-* [x] vifm 0.12.1: https://github.com/vifm/vifm/blob/0f6dd626a4e64c0d342e8a6e0504cdf6871a5dbb/data/vim/doc/app/vifm-lua.txt
+* [x] vifm 0.13.0
 * [x] mpv 0.35.0: https://github.com/mpv-player/mpv/raw/2e5d0d6e07b373445dfecc3bb59454d08d9439d5/DOCS/man/lua.rst
 * [x] nvim 0.10.0: https://github.com/ii14/emmylua-nvim/tree/e845efd
 * [x] vim.treesitter 0.9.0

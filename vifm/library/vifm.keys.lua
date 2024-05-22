@@ -14,8 +14,8 @@ vifm.keys = {}
 -- - "description" (string) (default: "")
 --   Description of the key.
 -- - "modes" (array of strings)
---   List of modes to register the key in.  Supported values: cmdline, normal,
---   visual, menus, view and dialogs (sort, attributes, change and file info).
+--   List of modes to register the key in.  Supported values: cmdline, nav,
+--   normal, visual, menus, view and dialogs (sort, attributes, change and file info).
 --   Unsupported values are ignored.
 -- - "isselector" (boolean) (default: false)
 --   Whether this handler defines a selector rather than a regular key.
@@ -39,10 +39,12 @@ vifm.keys = {}
 --   Key argument (e.g., "x" in "mx" sequence).
 --
 --Fields of table returned by {key}.handler for selectors:
--- - "indexes" (table)
+-- - "indexes" (array of integers)
 --   Table of indexes of entries of the current view (|vifm-l_vifm.currview()|)
---   that were selected for the operation.  Out of range values and duplicates
---   are silently ignored.  Indexes are sorted before processing.
+--   that were selected for the operation.  Invalid, nonexistent and duplicate
+--   indexes are silently ignored.  Indexes are sorted before processing.
+-- - "cursorpos" (integer) (optional)
+--   New position of the cursor.  Non-integer values are ignored.
 --
 ---@param key table Table with information about a key.
 ---@return boolean

@@ -4,8 +4,8 @@
 --
 --The corresponding tab exists independently of this type and once the tab is
 --closed accessing bound instance raises an error.
----@class VifmTab
-VifmTab = {}
+---@class vifm.Tab
+vifm.Tab = {}
 
 --Retrieves layout of a global tab or shared TUI state for a pane tab.
 --
@@ -16,16 +16,16 @@ VifmTab = {}
 --   `nil` when in only one window is visible, "v" or "h" otherwise.
 --
 ---@return table
-function VifmTab:getlayout() end
+function vifm.Tab:getlayout() end
 
 --Retrieves name of the tab if it was set.
 ---@return string|nil
-function VifmTab:getname() end
+function vifm.Tab:getname() end
 
 --Possible fields of {query}:
--- - "pane" (integer) (default: 1)
+-- - "pane" (integer) (default: index of active pane)
 --   Which view to get from a global tab.  1 is left/top pane, 2 is right/bottom
 --   one.  Ignored for a pane tab.
 --
----@return VifmView
-function VifmTab:getview(query) end
+---@return vifm.View
+function vifm.Tab:getview(query) end
