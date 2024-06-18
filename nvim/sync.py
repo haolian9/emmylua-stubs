@@ -1,21 +1,37 @@
+#!/usr/bin/env python3
+
 import shutil
 from pathlib import Path
-
-#!/usr/bin/env python3
 
 
 class facts:
     root = Path(__file__).parent
-    upstream = root.joinpath(root, "library/upstream")
-    runtime_meta = Path("/srv/playground/neovim/runtime/lua/vim/_meta")
+    upstream = Path("/srv/playground/neovim")
+
+
+def copy_meta_files():
+    dest = facts.root.joinpath("library/upstream")
+
+    shutil.rmtree(dest)
+    dest.mkdir()
+
+    for file in facts.upstream.joinpath("runtime/lua/vim/_meta").iterdir():
+        shutil.copy(file, dest)
+
+
+def copy_runtime_files():
+    dest = facts.root.joinpath("vim")
+
+    shutil.rmtree(dest)
+    dest.mkdir()
+
+    shutil.copytree(facts.upstream.joinpath("runtime/lua/vim/lsp"), dest.joinpath("lsp"))
+    shutil.copy(facts.upstream.joinpath("runtime/lua/vim/lsp.lua"), dest)
 
 
 def main():
-    shutil.rmtree(facts.upstream)
-    facts.upstream.mkdir()
-
-    for file in facts.runtime_meta.iterdir():
-        shutil.copy(file, facts.upstream)
+    copy_meta_files()
+    copy_runtime_files()
 
 
 if __name__ == "__main__":
