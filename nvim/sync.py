@@ -15,7 +15,11 @@ def copy_meta_files():
     shutil.rmtree(dest)
     dest.mkdir()
 
+    exclusive = {"regex.lua"}
+
     for file in facts.upstream.joinpath("runtime/lua/vim/_meta").iterdir():
+        if file.name in exclusive:
+            continue
         shutil.copy(file, dest)
 
 
