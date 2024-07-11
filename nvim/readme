@@ -1,4 +1,0 @@
-stole from https://github.com/ii14/emmylua-nvim/tree/b7e0dc546aa65615d230656050faded69c1f003e
-
-with following changes:
-* added annotations for vim.treesitter.* and Node, Tree
